@@ -1,0 +1,157 @@
+/* --- CSS 變數定義 --- */
+:root {
+    --primary-color: #daa520; /* 主要的金色 */
+    --hover-color: #8b4513;   /* 滑鼠懸停的棕色 */
+    --bg-color: #2c2c2c;      /* 背景色 */
+    --card-bg-color: #4a4a4a; /* 卡片背景色 */
+    --text-color: #f4f4f4;    /* 主要文字顏色 */
+    --font-title: 'Playfair Display', serif;
+    --font-heading: 'Oswald', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+    --transition-speed: 0.4s;
+}
+
+/* --- 全局與基礎樣式 --- */
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+h1 {
+    font-family: var(--font-title);
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
+/* --- 按鈕樣式 --- */
+.button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+    margin: 5px;
+}
+
+.button:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.05);
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+/* --- 卡片樣式 (問題與結果) --- */
+.card, .result-card {
+    background-color: var(--card-bg-color);
+    width: 90%;
+    max-width: 500px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    
+    /* 動畫效果：預設為隱藏 */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity var(--transition-speed) ease, 
+                visibility var(--transition-speed) ease, 
+                transform var(--transition-speed) ease;
+    
+    /* 確保元素不佔用空間 */
+    position: absolute;
+}
+
+/* 當卡片被啟動時，使其淡入並恢復位置 */
+.card.active, .result-card.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    position: static; /* 恢復正常文檔流 */
+}
+
+.card h2 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+/* --- 結果卡片特殊樣式 --- */
+.result-card h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.result-card p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.result-card a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.result-card a:hover {
+    color: var(--hover-color);
+}
+
+/* --- 進度條設計 --- */
+.progress-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 10px;
+    opacity: 0; /* 預設隱藏 */
+    transition: opacity var(--transition-speed) ease;
+}
+
+.progress-container.active {
+    opacity: 1; /* 測驗開始後顯示 */
+}
+
+.progress-item {
+    width: 25px;
+    height: 25px;
+    background-color: var(--hover-color);
+    border-radius: 50%;
+    opacity: 0.3;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.progress-item.active {
+    opacity: 1;
+    transform: scale(1.1);
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BARTENDER'S EAR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <main class="container">
+        <header>
+            <h1 id="main-title">BARTENDER'S EAR</h1>
+        </header>
+        
+        <section id="start-section">
+            <button class="button" id="start-btn">請坐，開始測驗</button>
+        </section>
+
+        <section class="card" id="question-card">
+            <h2 id="question-text"></h2>
+            <div class="button-group">
+                <button class="button" id="answer-btn-1"></button>
+                <button class="button" id="answer-btn-2"></button>
+            </div>
+        </section>
+
+        <div class="progress-container" id="progress-container">
+            <div class="progress-item"></div>
+            <div class="progress-item"></div>
+            <div class="progress-item"></div>
+            <div class="progress-item"></div>
+            <div class="progress-item"></div>
+        </div>
+
+        <section class="result-card" id="result-card">
+            <h2>我們了解了你的心境！</h2>
+            <p id="result-text"></p>
+            <a id="result-song" href="#" target="_blank" rel="noopener noreferrer"></a>
+        </section>
+    </main>
+
+</body>
+</html>
